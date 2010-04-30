@@ -19,17 +19,29 @@ mono.twitterEngine = function (destinationAccount, options) {
 	
 
 //	Preference Stocking
-	
-	var _options = $.extend(options, {
-	
-		'listenFromAccount': undefined,
 
-		'initalizeImmediately': true,
-		
-		'callbackOnUpdate': undefined,
-		'callbackOnFailure': undefined,
-		'callbackOnBackwardsFetchCompletion': undefined
+	jQuery.extendUsingDeepCopy = true;
 	
+	var _options = $.extend(jQuery.extendUsingDeepCopy, options, {
+	
+		associateWithAccount: undefined,
+		
+		initalizeImmediately: true,
+		
+		retrieve: {
+		
+			tweetsFewerThan: undefined,
+			
+			tweetsNewerThanID: undefined,
+			tweetsOlderThanID: undefined,
+			
+			tweetsTagged: undefined,
+			tweetsMatching: undefined
+		
+		},
+		
+		delegate: undefined
+			
 	});
 	
 	var _pref = new mono.preferencesController;
