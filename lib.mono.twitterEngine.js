@@ -8,7 +8,18 @@
 
 
 
-mono.twitterEngine = function (destinationAccount, options) {
+
+
+var MNTwitterEngineRetrievalTypeNewestOnly = "MNTwitterEngineRetrievalTypeNewest";
+var MNTwitterEngineRetrievalTypeDefault = "MNTwitterEngineRetrievalTypeDefault";
+
+
+
+
+
+mono.twitterEngine = function (options) {
+
+	mono.log("Initializing a Twitter engine instance with options:", options);
 	
 //	Dependency Check	
 	
@@ -24,8 +35,7 @@ mono.twitterEngine = function (destinationAccount, options) {
 	
 	var _options = $.extend(jQuery.extendUsingDeepCopy, options, {
 	
-		associateWithAccount: undefined,
-		
+		account: undefined,
 		initalizeImmediately: true,
 		
 		retrieve: {
